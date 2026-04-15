@@ -116,3 +116,19 @@ Deploy the smart contract to Stellar's Soroban network and interact with it usin
 ---
 
 **Stellar Notes DApp** - Securing Your Thoughts on the Blockchain
+
+## Frontend App
+
+Frontend ringan sudah tersedia di folder `frontend/` menggunakan **Vite + React + TypeScript**.
+
+```bash
+cd frontend
+cp .env.example .env
+npm install
+npm run dev
+```
+
+Konfigurasi environment yang wajib:
+- `VITE_CONTRACT_ID`
+- `VITE_STELLAR_RPC_URL`
+- `VITE_NETWORK_PASSPHRASE`
