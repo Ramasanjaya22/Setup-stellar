@@ -101,6 +101,44 @@ Menyimpan setiap transaksi pendanaan:
 17. **Automated Reporting**: Automatic note triggers for periodic reporting
 18. **Multi-Language Support**: Expand accessibility with internationalization
 
+
+## Frontend Deployment (GitHub Pages)
+
+Project ini sudah menyiapkan workflow **`.github/workflows/deploy-pages.yml`** untuk build dan deploy frontend ke GitHub Pages.
+
+### Prasyarat Repository Setting
+
+1. Buka **Settings -> Pages** pada repository GitHub.
+2. Pada bagian **Build and deployment**, set:
+   - **Source** = `GitHub Actions`
+
+### Build yang digunakan workflow
+
+Workflow melakukan build frontend dari folder `frontend` dengan perintah:
+
+```bash
+cd frontend
+npm ci
+npm run build
+```
+
+Output build yang di-upload ke GitHub Pages adalah folder `frontend/dist`.
+
+### Set `base` path untuk project pages
+
+Jika frontend menggunakan Vite dan dipublish ke project pages (contoh: `https://<username>.github.io/<repo>/`), set `base` agar asset path tidak rusak:
+
+```ts
+// frontend/vite.config.ts
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+  base: '/Setup-stellar/', // ganti dengan nama repo kamu
+})
+```
+
+> Jika deploy ke user/organization pages utama (`https://<username>.github.io/`), gunakan `base: '/'`.
+
 ---
 
 ## Technical Requirements
