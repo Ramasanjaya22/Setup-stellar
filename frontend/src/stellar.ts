@@ -49,7 +49,7 @@ async function ensureWalletAddress() {
 }
 
 function parseSimulation(result: rpc.Api.GetTransactionResponse | rpc.Api.SimulateTransactionResponse) {
-  if ('results' in result && result.results.length > 0) {
+  if ('results' in result && Array.isArray(result.results) && result.results.length > 0) {
     return scValToNative(result.results[0].xdr as xdr.ScVal);
   }
   return null;
@@ -106,8 +106,8 @@ async function invokeWrite(method: string, args: unknown[]) {
     TransactionBuilder.fromXDR(signedXdr.signedTxXdr, networkPassphrase)
   );
 
-  if (sent.status !== 'PENDING' && sent.status !== 'SUCCESS') {
-    throw new Error(`Transaksi gagal dikirim: ${sent.errorResultXdr ?? sent.status}`);
+  if (sent.status !== 'PENDING') {
+    throw new Error(`Transaksi gagal dikirim: ${(sent as any).errorResultXdr ?? sent.status}`);
   }
 
   return sent;

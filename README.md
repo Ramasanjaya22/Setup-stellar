@@ -174,3 +174,13 @@ Konfigurasi environment yang wajib:
 - `VITE_CONTRACT_ID`
 - `VITE_STELLAR_RPC_URL`
 - `VITE_NETWORK_PASSPHRASE`
+
+## Frontend Deployment (Vercel)
+
+Project ini juga siap di-deploy ke Vercel.
+Dengan adanya file `vercel.json` di root repository, Vercel akan otomatis mengenali project ini dan melakukan build pada folder `frontend/`.
+
+Cara deploy:
+1. Import repository ke Vercel
+2. Project siap berjalan secara otomatis (Framework: Vite, Build Command: `cd frontend && npm install && npm run build`, Output Directory: `frontend/dist`)
+3. Set Environment Variables di Vercel Dashboard jika dibutuhkan (`VITE_CONTRACT_ID`, `VITE_STELLAR_RPC_URL`, `VITE_NETWORK_PASSPHRASE`)

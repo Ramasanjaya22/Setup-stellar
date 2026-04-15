@@ -25,7 +25,7 @@ function formatDate(timestamp: number) {
 }
 
 export default function App() {
-  const [poolId, setPoolId] = useState<string | null>(() => readPoolIdFromQuery());
+  const [poolId] = useState<string | null>(() => readPoolIdFromQuery());
   const [errorMessage, setErrorMessage] = useState<string>('');
   const [loading, setLoading] = useState(false);
   const [txStatus, setTxStatus] = useState<string>('');
