@@ -61,6 +61,78 @@ Menyimpan setiap transaksi pendanaan:
 
 ## Menjalankan Test
 
+## Contract Details
+
+- Contract Address: CBLU4IUASQ4WUMOXBFLZRSBBLILGOH33GS4LUPKFBCCCMJCDQNMF7G2M
+  ![alt text](screenshot.png)
+
+## Future Scope
+
+### Short-Term Enhancements
+
+1. **Note Encryption**: Support for end-to-end encryption of note content for enhanced privacy
+2. **Category Management**: Add tags and categories to organize notes efficiently
+3. **Rich Text Support**: Extend support beyond plain text to include Markdown and formatted content
+4. **Search Functionality**: Implement advanced search filters for large note collections
+
+### Medium-Term Development
+
+5. **Collaborative Notes**: Implement multi-signature requirements for shared or collaborative note-taking
+   - Shared access for multiple addresses
+   - Permission-based editing and viewing
+   - Version history tracking
+6. **Notification System**: Off-chain bridge to alert users of new updates or shared notes
+7. **Asset Attachment**: Capability to attach digital assets or tokens to specific notes
+8. **Inter-Contract Integration**: Allow other smart contracts to interact with and store data in the notes contract
+
+### Long-Term Vision
+
+9. **Cross-Chain Synchronization**: Extend note storage to multiple blockchain networks
+10. **Decentralized UI Hosting**: Host the frontend on IPFS or similar decentralized platforms
+11. **AI-Powered Summarization**: Optional integration with AI to help users summarize their notes
+12. **Privacy Layers**: Implement zero-knowledge proofs for completely private note content
+13. **DAO Governance**: Community-driven protocol improvements and feature prioritization
+14. **Identity Management**: Integration with decentralized identity (DID) systems for user management
+
+### Enterprise Features
+
+15. **Corporate Documentation**: Adapt the system for secure corporate record-keeping
+16. **Immutable Logging**: Create time-locked logs for audit purposes
+17. **Automated Reporting**: Automatic note triggers for periodic reporting
+18. **Multi-Language Support**: Expand accessibility with internationalization
+
+---
+
+## Technical Requirements
+
+- Soroban SDK
+- Rust programming language
+- Stellar blockchain network
+
+## Getting Started
+
+Deploy the smart contract to Stellar's Soroban network and interact with it using the three main functions:
+
+- `create_note()` - Create a new note with a title and content
+- `get_notes()` - Retrieve all stored notes from the contract
+- `delete_note()` - Remove a specific note by its ID
+
+---
+
+**Stellar Notes DApp** - Securing Your Thoughts on the Blockchain
+
+## Frontend App
+
+Frontend ringan sudah tersedia di folder `frontend/` menggunakan **Vite + React + TypeScript**.
+
 ```bash
-cargo test -p notes
+cd frontend
+cp .env.example .env
+npm install
+npm run dev
 ```
+
+Konfigurasi environment yang wajib:
+- `VITE_CONTRACT_ID`
+- `VITE_STELLAR_RPC_URL`
+- `VITE_NETWORK_PASSPHRASE`
